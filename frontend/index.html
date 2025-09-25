@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Agent Game Tester</title>
+</head>
+<body>
+    <h1>Multi-Agent Game Tester</h1>
+    <button onclick="generatePlan()">Generate Plan</button>
+    <button onclick="executeTests()">Run Top Tests</button>
+    <pre id="output"></pre>
+    <div id="screenshots"></div>
+
+    <script>
+        async function generatePlan(){
+            let res = await fetch('http://127.0.0.1:8000/plan');
+            let data = await res.json();
+            document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+        }
+
+        async function executeTests(){
+            let res = await fetch('http://127.0.0.1:8000/execute');
+            let data = await res.json();
+            document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+
+            // Display screenshots
+            let screenshotsDiv = document.getElementById('screenshots');
+            screenshotsDiv.innerHTML = ''; // Clear old images
+
+            data.forEach(test => {
+                test.artifacts.forEach(path => {
+                    let img = document.createElement('img');
+                    img.src = `http://127.0.0.1:8000/${path}`;
+                    img.style.width = '300px';
+                    img.style.margin = '10px';
+                    screenshotsDiv.appendChild(img);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

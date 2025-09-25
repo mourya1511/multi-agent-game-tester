@@ -1,0 +1,26 @@
+[
+  {
+    "test_id": 1,
+    "verdict": "Pass",
+    "artifacts": [
+      "C:\\Users\\Admin\\multi-agent-tester\\backend\\agents\\..\\reports\\test_1.png"
+    ],
+    "reproducible": true
+  },
+  {
+    "test_id": 2,
+    "verdict": "Pass",
+    "artifacts": [
+      "C:\\Users\\Admin\\multi-agent-tester\\backend\\agents\\..\\reports\\test_2.png"
+    ],
+    "reproducible": true
+  },
+  {
+    "test_id": 3,
+    "verdict": "Pass",
+    "artifacts": [
+      "C:\\Users\\Admin\\multi-agent-tester\\backend\\agents\\..\\reports\\test_3.png"
+    ],
+    "reproducible": true
+  }
+]
